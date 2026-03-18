@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set up job
+        run: echo "Starting CI pipeline"
+
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -25,5 +28,8 @@ jobs:
       - name: Lint with flake8
         run: flake8 .
 
-      - name: Run unit tests
+      - name: Run unit tests with nose
         run: nosetests
+
+      - name: Complete job
+        run: echo "CI pipeline completed"
